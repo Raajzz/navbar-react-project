@@ -1,6 +1,6 @@
 @layer components{
   .nav-item{
-    @apply align-middle my-7 mx-3 font-sans text-base lg:text-lg hover:text-sky-500 hover:ease-in-out hover:duration-200 w-fit
+    @apply align-middle my-7 mx-2 font-sans text-base lg:text-lg hover:text-sky-500 hover:ease-in-out hover:duration-200 w-fit
   }
 }
 
