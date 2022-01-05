@@ -1,0 +1,15 @@
+@layer components{
+  .nav-item{
+    @apply align-middle my-7 mx-3 font-sans text-base lg:text-lg hover:text-sky-500 hover:ease-in-out hover:duration-200 w-fit
+  }
+}
+
+.vert-center{
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
