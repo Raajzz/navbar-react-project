@@ -1,8 +1,6 @@
-# Cocktails Project
+# NAVBAR PROJECT
 
-A simple react-tailwind application that uses the [cocktails api](https://www.thecocktaildb.com/api.php) 
-This application had been manually deployed onto netlify, you can find it [here](https://cocktails-project-raaj.netlify.app/)
-The application shall be deployed via github in the future.
+A simple react-tailwind application to build a navbar
 
 # Getting Started with Create React App
 
