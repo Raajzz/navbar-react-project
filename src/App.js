@@ -59,15 +59,26 @@ const MaxComponent = () => {
 };
 
 const MinComponent = ({ renderItems, setrenderItems }) => {
+
+
+  const [bsListHoverStates, setBsListHoverStates] = useState(true)
+
   const clickHandler = () => {
     console.log("From Clickhandler");
     setrenderItems(!renderItems);
+    setBsListHoverStates(!bsListHoverStates);
   };
 
   return (
     <div className="vert-center">
       <button onClick={clickHandler} className="absolute right-20">
-        <BsList className=" text-4xl text-sky-300 hover:text-gray-800 hover:ease-in-out spin-half hover:duration-200" />
+        <BsList
+          className={`text-4xl ${
+            bsListHoverStates
+              ? "text-sky-300 hover:text-gray-800"
+              : "hover:text-sky-300 text-gray-800"
+          } hover:ease-in-out spin-half hover:duration-200`}
+        />
       </button>
     </div>
   );
