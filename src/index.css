@@ -1,7 +1,8 @@
 @layer components{
-  .nav-item{
+  .nav-item-mg{
     @apply align-middle my-7 mx-2 font-sans text-base lg:text-lg hover:text-sky-500 hover:ease-in-out hover:duration-200 w-fit
   }
+
 }
 
 .vert-center{

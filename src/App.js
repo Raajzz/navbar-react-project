@@ -8,42 +8,48 @@ import { BsList } from "react-icons/bs";
 
 // , AiFillLinkedin, FiGithub
 
+const NavRoutes = () => {
+  return (
+    <div className="vert-center mx-auto">
+      <Router>
+        <Link to="#" className=" md:nav-item-mg">
+          Home
+        </Link>
+        <Link to="#" className=" md:nav-item-mg">
+          About
+        </Link>
+        <Link to="#" className=" md:nav-item-mg">
+          Projects
+        </Link>
+        <Link to="#" className=" md:nav-item-mg">
+          Contact
+        </Link>
+        <Link to="#" className=" md:nav-item-mg">
+          Profile
+        </Link>
+      </Router>
+    </div>
+  );
+};
+
 const MaxComponent = () => {
   return (
     <>
-      <div className="vert-center mx-auto">
-        <Router>
-          <Link to="#" className=" md:nav-item">
-            Home
-          </Link>
-          <Link to="#" className=" md:nav-item">
-            About
-          </Link>
-          <Link to="#" className=" md:nav-item">
-            Projects
-          </Link>
-          <Link to="#" className=" md:nav-item">
-            Contact
-          </Link>
-          <Link to="#" className=" md:nav-item">
-            Profile
-          </Link>
-        </Router>
-      </div>
+      <NavRoutes />
       {/* SOCIAL ICONS */}
       {/* // import { FiFacebook, FiTwitter, AiFillLinkedin, FiGithub } from "react-icons"; */}
       <div className="vert-center mx-auto absolute  md:right-7 lg:right-32 xl:right-52 h-24">
         <Router>
-          <Link to="#" className=" md:nav-item">
+          <Link to="#" className=" md:nav-item-mg">
             <FiFacebook />
           </Link>
-          <Link to="#" className=" md:nav-item">
+          <Link to="#" className=" md:nav-item-mg">
             <FiTwitter />
           </Link>
-          <Link to="#" className=" md:nav-item">
+          <Link to="#" className=" md:nav-item-mg">
             <AiFillLinkedin />
           </Link>
-          <Link to="#" className=" md:nav-item">
+          <Link to="#" className=" md:nav-item-mg">
             <FiGithub />
           </Link>
         </Router>
@@ -90,9 +96,9 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-slate-400 min-h-[6rem]">
       <div
-        className={`bg-slate-400 h-24 grid ${
+        className={`h-24 grid ${
           innerWidth <= SMALLSIZE ? "grid-cols-2" : "grid-cols-3"
         }`}
       >
