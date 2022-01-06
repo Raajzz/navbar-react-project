@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from "./img/logo.svg";
-import { HashRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { HashRouter as Router, Link } from "react-router-dom";
 
 import { FiFacebook, FiTwitter, FiGithub } from "react-icons/fi";
 import { AiFillLinkedin } from "react-icons/ai";
@@ -10,32 +10,32 @@ import { BsList } from "react-icons/bs";
 
 const NavRoutes = () => {
   return (
-    <div className="vert-center mx-auto">
-      <Router>
-        <Link to="#" className=" md:nav-item-mg">
-          Home
-        </Link>
-        <Link to="#" className=" md:nav-item-mg">
-          About
-        </Link>
-        <Link to="#" className=" md:nav-item-mg">
-          Projects
-        </Link>
-        <Link to="#" className=" md:nav-item-mg">
-          Contact
-        </Link>
-        <Link to="#" className=" md:nav-item-mg">
-          Profile
-        </Link>
-      </Router>
-    </div>
+    <Router>
+      <Link to="#" className=" nav-item-sm md:nav-item-mg">
+        Home
+      </Link>
+      <Link to="#" className=" nav-item-sm md:nav-item-mg">
+        About
+      </Link>
+      <Link to="#" className=" nav-item-sm md:nav-item-mg">
+        Projects
+      </Link>
+      <Link to="#" className=" nav-item-sm md:nav-item-mg">
+        Contact
+      </Link>
+      <Link to="#" className=" nav-item-sm md:nav-item-mg">
+        Profile
+      </Link>
+    </Router>
   );
 };
 
 const MaxComponent = () => {
   return (
     <>
-      <NavRoutes />
+      <div className="vert-center mx-auto">
+        <NavRoutes />
+      </div>
       {/* SOCIAL ICONS */}
       {/* // import { FiFacebook, FiTwitter, AiFillLinkedin, FiGithub } from "react-icons"; */}
       <div className="vert-center mx-auto absolute  md:right-7 lg:right-32 xl:right-52 h-24">
@@ -58,13 +58,7 @@ const MaxComponent = () => {
   );
 };
 
-const MinCompItems = () => {
-  return <h1>MinCompItems</h1>;
-};
-
-const MinComponent = () => {
-  const [renderItems, setrenderItems] = useState(false);
-
+const MinComponent = ({ renderItems, setrenderItems }) => {
   const clickHandler = () => {
     console.log("From Clickhandler");
     setrenderItems(!renderItems);
@@ -73,8 +67,7 @@ const MinComponent = () => {
   return (
     <div className="vert-center">
       <button onClick={clickHandler} className="absolute right-20">
-        <BsList className=" text-4xl text-sky-500 hover:text-gray-800 hover:ease-in-out spin-half hover:duration-200" />
-        {renderItems ? <MinCompItems /> : null}
+        <BsList className=" text-4xl text-sky-300 hover:text-gray-800 hover:ease-in-out spin-half hover:duration-200" />
       </button>
     </div>
   );
@@ -82,10 +75,16 @@ const MinComponent = () => {
 
 const App = () => {
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  const [renderItems, setrenderItems] = useState(false);
   const SMALLSIZE = 767;
 
   const resizeHandler = () => {
     setInnerWidth(window.innerWidth);
+    if (window.innerWidth > SMALLSIZE) {
+      setrenderItems(false);
+    } else if (renderItems && window.innerWidth <= SMALLSIZE) {
+      setrenderItems(true);
+    }
   };
 
   useEffect(() => {
@@ -110,8 +109,16 @@ const App = () => {
             className=" inline-block mx-5 lg:ml-16 2xl:ml-20 w-48 "
           />
         </div>
-        {innerWidth <= SMALLSIZE ? <MinComponent /> : <MaxComponent />}
+        {innerWidth <= SMALLSIZE ? (
+          <MinComponent
+            renderItems={renderItems}
+            setrenderItems={setrenderItems}
+          />
+        ) : (
+          <MaxComponent />
+        )}
       </div>
+      {renderItems ? <NavRoutes /> : null}
     </div>
   );
 };

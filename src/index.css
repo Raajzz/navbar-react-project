@@ -1,14 +1,16 @@
-@layer components{
-  .nav-item-mg{
-    @apply align-middle my-7 mx-2 font-sans text-base lg:text-lg hover:text-sky-500 hover:ease-in-out hover:duration-200 w-fit
+@layer components {
+  .nav-item-mg {
+    @apply my-7 mx-2 font-sans text-base lg:text-lg hover:text-sky-300 hover:bg-transparent w-fit p-0;
   }
-
+  .nav-item-sm {
+    @apply block text-center pt-2 pb-2 text-lg hover:bg-sky-300 hover:text-white hover:ease-in-out hover:duration-200;
+  }
 }
 
-.vert-center{
+.vert-center {
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
 @tailwind base;
